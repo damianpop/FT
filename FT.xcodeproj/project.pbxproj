@@ -34,7 +34,7 @@
 		2DF1591919D9BE8400428ABE /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1590E19D9BE8400428ABE /* AFURLRequestSerialization.m */; };
 		2DF1591A19D9BE8400428ABE /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1591019D9BE8400428ABE /* AFURLResponseSerialization.m */; };
 		2DF1591B19D9BE8400428ABE /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1591219D9BE8400428ABE /* AFURLSessionManager.m */; };
-		2DF1591E19D9C6C400428ABE /* OffersResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1591D19D9C6C400428ABE /* OffersResponse.m */; };
+		2DF1591E19D9C6C400428ABE /* OffersLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1591D19D9C6C400428ABE /* OffersLoader.m */; };
 		2DF1592119D9D9EE00428ABE /* OffersListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1592019D9D9EE00428ABE /* OffersListController.m */; };
 		2DF1593419DA014C00428ABE /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1592419DA014C00428ABE /* AFNetworkActivityIndicatorManager.m */; };
 		2DF1593519DA014C00428ABE /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1592619DA014C00428ABE /* UIActivityIndicatorView+AFNetworking.m */; };
@@ -104,8 +104,8 @@
 		2DF1591019D9BE8400428ABE /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		2DF1591119D9BE8400428ABE /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		2DF1591219D9BE8400428ABE /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		2DF1591C19D9C6C400428ABE /* OffersResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffersResponse.h; sourceTree = "<group>"; };
-		2DF1591D19D9C6C400428ABE /* OffersResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffersResponse.m; sourceTree = "<group>"; };
+		2DF1591C19D9C6C400428ABE /* OffersLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffersLoader.h; sourceTree = "<group>"; };
+		2DF1591D19D9C6C400428ABE /* OffersLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffersLoader.m; sourceTree = "<group>"; };
 		2DF1591F19D9D9EE00428ABE /* OffersListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffersListController.h; sourceTree = "<group>"; };
 		2DF1592019D9D9EE00428ABE /* OffersListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffersListController.m; sourceTree = "<group>"; };
 		2DF1592319DA014C00428ABE /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
@@ -203,8 +203,8 @@
 				2D32C3E519D9B2790063A224 /* NSString+Extensions.m */,
 				2D32C3DE19D9A0AE0063A224 /* Offer.h */,
 				2D32C3DF19D9A0AE0063A224 /* Offer.m */,
-				2DF1591C19D9C6C400428ABE /* OffersResponse.h */,
-				2DF1591D19D9C6C400428ABE /* OffersResponse.m */,
+				2DF1591C19D9C6C400428ABE /* OffersLoader.h */,
+				2DF1591D19D9C6C400428ABE /* OffersLoader.m */,
 				2DF1591F19D9D9EE00428ABE /* OffersListController.h */,
 				2DF1592019D9D9EE00428ABE /* OffersListController.m */,
 			);
@@ -417,7 +417,7 @@
 				2DF1593919DA014C00428ABE /* UIProgressView+AFNetworking.m in Sources */,
 				2D32C3DA19D8A1080063A224 /* SearchViewController.m in Sources */,
 				2DF1593719DA014C00428ABE /* UIButton+AFNetworking.m in Sources */,
-				2DF1591E19D9C6C400428ABE /* OffersResponse.m in Sources */,
+				2DF1591E19D9C6C400428ABE /* OffersLoader.m in Sources */,
 				2DF1591919D9BE8400428ABE /* AFURLRequestSerialization.m in Sources */,
 				2DF1591619D9BE8400428ABE /* AFNetworkReachabilityManager.m in Sources */,
 				2DF1593A19DA014C00428ABE /* UIRefreshControl+AFNetworking.m in Sources */,

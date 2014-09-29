@@ -8,7 +8,7 @@
 
 #import "SearchViewController.h"
 #import "Offer.h"
-#import "OffersResponse.h"
+#import "OffersLoader.h"
 #import "OffersListController.h"
 
 
@@ -37,7 +37,7 @@
     [self.searchButton setEnabled:NO];
     [self.activityIndicator startAnimating];
     
-    self.offers = [[OffersResponse alloc] init];
+    self.offers = [[OffersLoader alloc] init];
     [self.offers loadOffersUserID:userId apiKey:apiKey locale:locale ip:ip success:^(void){
         [self performSegueWithIdentifier:@"Search" sender:self];
         

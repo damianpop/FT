@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OffersResponse.h"
+#import "OffersLoader.h"
 
 @interface OffersListController : UITableViewController
 
-@property OffersResponse* offers;
+@property OffersLoader* offers;
 
 - (IBAction)done:(id)sender;
 

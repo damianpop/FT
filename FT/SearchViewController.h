@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OffersResponse.h"
+#import "OffersLoader.h"
 
 @interface SearchViewController : UITableViewController
 
@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-@property OffersResponse* offers;
+@property OffersLoader* offers;
 
 - (IBAction)search:(id)sender;
 

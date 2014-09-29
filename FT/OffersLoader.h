@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OffersResponse : NSObject
+@interface OffersLoader : NSObject
 
 @property NSMutableArray* offers;
 @property int pagesRemaining;

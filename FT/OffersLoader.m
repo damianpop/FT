@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 damiantroncoso. All rights reserved.
 //
 
-#import "OffersResponse.h"
+#import "OffersLoader.h"
 #import "Offer.h"
 #import "NSDictionary+Extensions.h"
 #import "NSString+Extensions.h"
@@ -16,7 +16,7 @@
 #import "AFNetworking.h"
 #import <AdSupport/AdSupport.h>
 
-@implementation OffersResponse
+@implementation OffersLoader
 
 - (id) init {
     self = [super init];
