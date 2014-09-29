@@ -10,6 +10,7 @@
 #import "Offer.h"
 #import "OffersLoader.h"
 #import "OffersListController.h"
+#import "ErrorViewController.h"
 
 
 @interface SearchViewController ()
@@ -43,8 +44,9 @@
         
         [self.searchButton setEnabled:YES];
         [self.activityIndicator stopAnimating];
-    } failure:^(NSError* error){
-        NSLog(@"Error: %@", error);
+    } failure:^(NSError* aerror){
+        self.error = aerror;
+        [self performSegueWithIdentifier:@"Error" sender:self];
         
         [self.searchButton setEnabled:YES];
         [self.activityIndicator stopAnimating];
@@ -68,6 +70,11 @@
         OffersListController *secondController = [navigationController viewControllers][0];
             
         secondController.offers = self.offers;
+    } else if([[segue identifier] isEqualToString:@"Error"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        ErrorViewController *secondController = [navigationController viewControllers][0];
+        
+        secondController.errorMessage = self.error.localizedDescription;
     }
 }
 

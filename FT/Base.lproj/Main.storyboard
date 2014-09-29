@@ -124,11 +124,53 @@
                         <outlet property="searchButton" destination="meW-hL-Dnv" id="koE-3o-alG"/>
                         <outlet property="userId" destination="RCK-1c-T54" id="Q6L-Z3-fJ1"/>
                         <segue destination="fis-Lf-MQ5" kind="modal" identifier="Search" id="9Oe-R8-ZW2"/>
+                        <segue destination="FYE-9c-f01" kind="modal" identifier="Error" id="xuC-nw-iCM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7I-pf-WoE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="220" y="116"/>
+        </scene>
+        <!--Error View Controller-->
+        <scene sceneID="cZf-Ub-kHQ">
+            <objects>
+                <viewController id="IAN-KS-twq" customClass="ErrorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iBF-Ft-sUb"/>
+                        <viewControllerLayoutGuide type="bottom" id="IIq-b4-vwR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8cf-8G-1y5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Col-t0-84v">
+                                <rect key="frame" x="20" y="305" width="280" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.19999999999999968" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-warning" translatesAutoresizingMaskIntoConstraints="NO" id="beS-vx-8jw">
+                                <rect key="frame" x="60" y="106" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D0Y-Mr-ZtU">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="OuA-qK-jT7">
+                            <connections>
+                                <action selector="done:" destination="IAN-KS-twq" id="QQ6-fs-RNJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="errorMsgLabel" destination="Col-t0-84v" id="9Lz-80-ezg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OsB-I1-Xs3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1176" y="-572"/>
         </scene>
         <!--Offers List Controller - Offers-->
         <scene sceneID="7C9-XF-bf7">
@@ -228,7 +270,28 @@
             </objects>
             <point key="canvasLocation" x="650" y="118"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3EK-0a-rxS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FYE-9c-f01" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZcI-Rc-QVI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IAN-KS-twq" kind="relationship" relationship="rootViewController" id="DOJ-01-lrx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tmw-6J-D76" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="650" y="-572"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="icon-warning" width="390" height="343"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

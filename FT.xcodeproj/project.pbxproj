@@ -45,6 +45,7 @@
 		2DF1593A19DA014C00428ABE /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1593119DA014C00428ABE /* UIRefreshControl+AFNetworking.m */; };
 		2DF1593B19DA014C00428ABE /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1593319DA014C00428ABE /* UIWebView+AFNetworking.m */; };
 		2DF1593D19DA0B2300428ABE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF1593C19DA0B2300428ABE /* AdSupport.framework */; };
+		2DF1594319DA244200428ABE /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1594219DA244200428ABE /* ErrorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,8 @@
 		2DF1593219DA014C00428ABE /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		2DF1593319DA014C00428ABE /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		2DF1593C19DA0B2300428ABE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		2DF1594119DA244200428ABE /* ErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
+		2DF1594219DA244200428ABE /* ErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +210,8 @@
 				2DF1591D19D9C6C400428ABE /* OffersLoader.m */,
 				2DF1591F19D9D9EE00428ABE /* OffersListController.h */,
 				2DF1592019D9D9EE00428ABE /* OffersListController.m */,
+				2DF1594119DA244200428ABE /* ErrorViewController.h */,
+				2DF1594219DA244200428ABE /* ErrorViewController.m */,
 			);
 			path = FT;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				2D32C3E019D9A0AE0063A224 /* Offer.m in Sources */,
 				2DF1593419DA014C00428ABE /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2DF1593819DA014C00428ABE /* UIImageView+AFNetworking.m in Sources */,
+				2DF1594319DA244200428ABE /* ErrorViewController.m in Sources */,
 				2DF1591419D9BE8400428ABE /* AFHTTPRequestOperationManager.m in Sources */,
 				2DF1593519DA014C00428ABE /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2DF1593B19DA014C00428ABE /* UIWebView+AFNetworking.m in Sources */,

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property OffersLoader* offers;
+@property NSError* error;
 
 - (IBAction)search:(id)sender;
 
