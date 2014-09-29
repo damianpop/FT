@@ -8,6 +8,7 @@
 
 #import "OffersListController.h"
 #import "Offer.h"
+#import "UIKit+AFNetworking.h"
 
 @interface OffersListController ()
 
@@ -70,7 +71,8 @@
     payoutLabel.text = [NSString stringWithFormat:@"Payout: %i", player.payout];
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell viewWithTag:103];
-    //ratingImageView.image = [self imageForRating:player.rating];
+    [thumbnailImageView setImage:nil];
+    [thumbnailImageView setImageWithURL:[NSURL URLWithString:player.thumbnailUrl]];
     
     return cell;
 }
