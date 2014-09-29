@@ -13,6 +13,7 @@
 #import "AFNetworking.h"
 #import "OffersResponse.h"
 #import "OffersListController.h"
+#import <AdSupport/AdSupport.h> 
 
 @interface SearchViewController ()
 
@@ -35,18 +36,19 @@
 
 }
 
-- (void)loadOffers {
+- (void)loadOffersUserID:(NSString*) userId apiKey:(NSString*)apiKey locale:(NSString*)locale ip:(NSString*)ip {
     [self.searchButton setEnabled:NO];
     [self.activityIndicator startAnimating];
     
-    NSString* apiKey = @"1c915e3b5d42d05136185030892fbb846c278927";
+    //NSString* apiKey = @"1c915e3b5d42d05136185030892fbb846c278927";
     
     NSDictionary *queryParams = @{@"appid" : [NSNumber numberWithInt:2070],
-                                          @"uid" : @"spiderman",
-                                          @"locale": @"DE",
-                                          @"ip" : @"109.235.143.113",
-                                          @"ps_time" : @"20140118",
-                                          @"timestamp" : [NSString stringWithFormat:@"%lli",(long long)([[NSDate date] timeIntervalSince1970])] };
+                                  @"uid" : userId,
+                                  @"locale": locale,
+                                  @"ip" : ip,
+                                  @"offer_types" : [NSNumber numberWithInt:112],
+                                  @"timestamp" : [NSString stringWithFormat:@"%lli",(long long)([[NSDate date] timeIntervalSince1970])] ,
+                                  @"device_id" : [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] };
     
     NSString* queryString = [queryParams queryStringValueAlphabeticalOrder];
     NSString* conc = [NSString stringWithFormat:@"%@&%@", queryString, apiKey];
@@ -77,7 +79,7 @@
     NSString* sLocale = self.locale.text;
     NSString* sIP = self.ip.text;
     
-    [self loadOffers];
+    [self loadOffersUserID:sUserId apiKey:sApiKey locale:sLocale ip:sIP];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
