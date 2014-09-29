@@ -101,6 +101,10 @@
                                                         <action selector="search:" destination="OyY-Lg-YL1" eventType="touchUpInside" id="tAI-Ph-vBX"/>
                                                     </connections>
                                                 </button>
+                                                <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ocs-ce-5SS">
+                                                    <rect key="frame" x="198" y="12" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -113,9 +117,11 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="activityIndicator" destination="Ocs-ce-5SS" id="c4t-14-AbB"/>
                         <outlet property="apiKey" destination="5EI-W2-5IB" id="SMI-W4-Ndk"/>
                         <outlet property="ip" destination="aRa-48-o3T" id="pEb-S6-ahf"/>
                         <outlet property="locale" destination="dzr-Jn-roa" id="sx7-mT-98Y"/>
+                        <outlet property="searchButton" destination="meW-hL-Dnv" id="koE-3o-alG"/>
                         <outlet property="userId" destination="RCK-1c-T54" id="Q6L-Z3-fJ1"/>
                         <segue destination="fis-Lf-MQ5" kind="modal" identifier="Search" id="9Oe-R8-ZW2"/>
                     </connections>

@@ -36,6 +36,9 @@
 }
 
 - (void)loadOffers {
+    [self.searchButton setEnabled:NO];
+    [self.activityIndicator startAnimating];
+    
     NSString* apiKey = @"1c915e3b5d42d05136185030892fbb846c278927";
     
     NSDictionary *queryParams = @{@"appid" : [NSNumber numberWithInt:2070],
@@ -56,9 +59,16 @@
         self.offers = [OffersResponse responseWithData:(NSDictionary*)responseObject];
         [self performSegueWithIdentifier:@"Search" sender:self];
         
+        [self.searchButton setEnabled:YES];
+        [self.activityIndicator stopAnimating];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        
+        [self.searchButton setEnabled:YES];
+        [self.activityIndicator stopAnimating];
     }];
+    
+    
 }
 
 - (IBAction)search:(id)sender {

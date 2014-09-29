@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *apiKey;
 @property (weak, nonatomic) IBOutlet UITextField *locale;
 @property (weak, nonatomic) IBOutlet UITextField *ip;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property OffersResponse* offers;
 
