@@ -11,7 +11,8 @@
 @interface OffersLoader : NSObject
 
 @property NSMutableArray* offers;
-@property int pagesRemaining;
+@property int pages;
+@property int pagesLoaded;
 @property int appId;
 @property NSString* apiKey;
 @property NSString* userId;
@@ -22,7 +23,7 @@
 - (id) init;
 - (void) addOffers:(NSDictionary*) data;
 
-- (void)loadOffersUserID:(NSString*) userId apiKey:(NSString*)apiKey locale:(NSString*)locale ip:(NSString*)ip
+- (void) loadOffersUserID:(NSString*) userId apiKey:(NSString*)apiKey locale:(NSString*)locale ip:(NSString*)ip
                  success:(void (^)(void))success
                  failure:(void (^)(NSError *error))failure;
 - (void) loadNextPageSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;

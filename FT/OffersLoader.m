@@ -32,21 +32,6 @@
     }
 }
 
-- (id) initWithData:(NSDictionary*) data {
-    self = [super init];
-    
-    self.offers = [[NSMutableArray alloc] init];
-    self.pagesRemaining = [[data objectForKey:@"pages"] intValue] - 1;
-    
-    NSArray* offersData = [data objectForKey:@"offers"];
-    for(NSDictionary* offerData in offersData){
-        Offer* offer = [Offer offerWithData:offerData];
-        [self.offers addObject:offer];
-    }
-    
-    return self;
-}
-
 - (void) makeRequestPage:(int)page success:(void (^)(NSDictionary* data))success failure:(void (^)(NSError *error))failure{
     NSDictionary *queryParams = @{@"appid" : [NSNumber numberWithInt:self.appId],
                                   @"uid" : self.userId,
@@ -87,7 +72,8 @@
     
     [self makeRequestPage:1 success:^(NSDictionary* data) {
         [self addOffers:data];
-        self.pagesRemaining = [[data objectForKey:@"pages"] intValue] - 1;
+        self.pages = [[data objectForKey:@"pages"] intValue];
+        self.pagesLoaded = 1;
         
         success();
     } failure:^(NSError *error) {
@@ -96,12 +82,12 @@
 }
 
 - (void) loadNextPageSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure {
-    if(self.pagesRemaining <= 0) {
+    if(self.pages - self.pagesLoaded <= 0) {
         success();
     } else {
-        [self makeRequestPage:2 success:^(NSDictionary* data) {
-            [self addOffers:[data objectForKey:@"offers"]];
-            self.pagesRemaining --;
+        self.pagesLoaded ++;
+        [self makeRequestPage:self.pagesLoaded success:^(NSDictionary* data) {
+            [self addOffers:data];
             success();
         } failure:^(NSError *error) {
             failure(error);

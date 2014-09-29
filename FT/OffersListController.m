@@ -44,7 +44,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int count = [self.offers.offers count];
-    if(self.offers.pagesRemaining > 0) count++;
+    if(self.offers.pages - self.offers.pagesLoaded > 0) count++;
     return count;
 }
 
@@ -71,6 +71,11 @@
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoadMore"];
+        [self.offers loadNextPageSuccess:^{
+            [self.tableView reloadData];
+        } failure:^(NSError *error) {
+            
+        }];
         return cell;
     }
     
