@@ -8,12 +8,9 @@
 
 #import "SearchViewController.h"
 #import "Offer.h"
-#import "NSDictionary+Extensions.h"
-#import "NSString+Extensions.h"
-#import "AFNetworking.h"
 #import "OffersResponse.h"
 #import "OffersListController.h"
-#import <AdSupport/AdSupport.h> 
+
 
 @interface SearchViewController ()
 
@@ -40,36 +37,18 @@
     [self.searchButton setEnabled:NO];
     [self.activityIndicator startAnimating];
     
-    //NSString* apiKey = @"1c915e3b5d42d05136185030892fbb846c278927";
-    
-    NSDictionary *queryParams = @{@"appid" : [NSNumber numberWithInt:2070],
-                                  @"uid" : userId,
-                                  @"locale": locale,
-                                  @"ip" : ip,
-                                  @"offer_types" : [NSNumber numberWithInt:112],
-                                  @"timestamp" : [NSString stringWithFormat:@"%lli",(long long)([[NSDate date] timeIntervalSince1970])] ,
-                                  @"device_id" : [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] };
-    
-    NSString* queryString = [queryParams queryStringValueAlphabeticalOrder];
-    NSString* conc = [NSString stringWithFormat:@"%@&%@", queryString, apiKey];
-    NSString* hash = [conc sha1];
-    
-    queryString = [NSString stringWithFormat:@"%@?%@&%@=%@", @"http://api.sponsorpay.com/feed/v1/offers.json", queryString, @"hashkey", hash];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:queryString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.offers = [OffersResponse responseWithData:(NSDictionary*)responseObject];
+    self.offers = [[OffersResponse alloc] init];
+    [self.offers loadOffersUserID:userId apiKey:apiKey locale:locale ip:ip success:^(void){
         [self performSegueWithIdentifier:@"Search" sender:self];
         
         [self.searchButton setEnabled:YES];
         [self.activityIndicator stopAnimating];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError* error){
         NSLog(@"Error: %@", error);
         
         [self.searchButton setEnabled:YES];
         [self.activityIndicator stopAnimating];
     }];
-    
     
 }
 
