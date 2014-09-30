@@ -40,7 +40,9 @@
     
     self.offers = [[OffersLoader alloc] init];
     [self.offers loadOffersUserID:userId apiKey:apiKey locale:locale ip:ip success:^(void){
-        [self performSegueWithIdentifier:@"Search" sender:self];
+        self.error = nil;
+        if(self.offers.offers.count  == 0) [self performSegueWithIdentifier:@"Error" sender:self];
+        else [self performSegueWithIdentifier:@"Search" sender:self];
         
         [self.searchButton setEnabled:YES];
         [self.activityIndicator stopAnimating];
@@ -74,7 +76,8 @@
         UINavigationController *navigationController = segue.destinationViewController;
         ErrorViewController *secondController = [navigationController viewControllers][0];
         
-        secondController.errorMessage = self.error.localizedDescription;
+        if(self.error == nil) secondController.errorMessage = @"No Offers";
+        else secondController.errorMessage = self.error.localizedDescription;
     }
 }
 
