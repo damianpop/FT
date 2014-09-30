@@ -129,6 +129,7 @@
 		2DF1593C19DA0B2300428ABE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		2DF1594119DA244200428ABE /* ErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
 		2DF1594219DA244200428ABE /* ErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
+		2DF1594419DA59F100428ABE /* AGAsyncTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAsyncTestHelper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +231,7 @@
 		2D32C3C519D896370063A224 /* FTTests */ = {
 			isa = PBXGroup;
 			children = (
+				2DF1594419DA59F100428ABE /* AGAsyncTestHelper.h */,
 				2D32C3CB19D896370063A224 /* FTTests.m */,
 				2D32C3C619D896370063A224 /* Supporting Files */,
 			);

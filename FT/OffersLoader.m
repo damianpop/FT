@@ -64,7 +64,10 @@
             failure(err);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
+        NSDictionary *details = @{NSLocalizedDescriptionKey : error.localizedDescription};
+        int code = operation.response.statusCode;
+        NSError* err = [NSError errorWithDomain:error.domain code:code userInfo:details];
+        failure(err);
     }];
 }
 
