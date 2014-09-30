@@ -50,8 +50,19 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:queryString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary* res = (NSDictionary*)responseObject;
-        success(res);
+        NSString* responseSignature = [[operation.response allHeaderFields] objectForKey:@"X-Sponsorpay-Response-Signature"];
+        NSString* response = [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding];
+        response = [NSString stringWithFormat:@"%@%@", response, self.apiKey];
+        NSString* localSignature = [response sha1];
+        
+        if([localSignature isEqualToString:responseSignature]){
+            NSDictionary* res = (NSDictionary*)responseObject;
+            success(res);
+        } else {
+            NSDictionary *details = @{NSLocalizedDescriptionKey : @"Response is invalid"};
+            NSError* err = [NSError errorWithDomain:@"err" code:10 userInfo:details];
+            failure(err);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
