@@ -34,6 +34,15 @@
 
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField*)textField {
+    if(textField == self.userId) [self.apiKey becomeFirstResponder];
+    else if(textField == self.apiKey) [self.locale becomeFirstResponder];
+    else if(textField == self.locale) [self.ip becomeFirstResponder];
+    else [textField resignFirstResponder];
+ 
+    return NO;
+}
+
 - (void)loadOffersUserID:(NSString*) userId apiKey:(NSString*)apiKey locale:(NSString*)locale ip:(NSString*)ip {
     [self.searchButton setEnabled:NO];
     [self.activityIndicator startAnimating];
@@ -61,6 +70,8 @@
     NSString* sApiKey = self.apiKey.text;
     NSString* sLocale = self.locale.text;
     NSString* sIP = self.ip.text;
+    
+    [self.view endEditing:YES];
     
     [self loadOffersUserID:sUserId apiKey:sApiKey locale:sLocale ip:sIP];
 }
